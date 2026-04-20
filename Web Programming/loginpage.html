@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: 390px;
+      overflow: hidden;
+    }
+
+    /* --- Banner --- */
+    .banner {
+      width: 100%;
+      height: 175px;
+      position: relative;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 20, 60, 0.45);
+    }
+
+    .banner-text {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+    }
+
+    .banner-text h1 {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .banner-text p {
+      color: #b5d4f4;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* --- Form Area --- */
+    .form-area {
+      padding: 20px 28px 28px;
+    }
+
+    /* --- Social Buttons --- */
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 9px 14px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .social-btn:hover {
+      background-color: #f5f5f5;
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* --- Divider --- */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background-color: #e0e0e0;
+    }
+
+    .divider span {
+      font-size: 12px;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    /* --- Form Fields --- */
+    label {
+      display: block;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #111;
+      background-color: #fff;
+      margin-bottom: 16px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #185FA5;
+    }
+
+    .forgot {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    .forgot a {
+      font-size: 12px;
+      color: #185FA5;
+      text-decoration: none;
+    }
+
+    /* --- Sign In Button --- */
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #185FA5;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #144f8a;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .footer a {
+      color: #185FA5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- Banner Image -->
+    <div class="banner">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80" alt="Aurora Banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-text">
+        <h1>Welcome back</h1>
+        <p>Sign in to continue</p>
+      </div>
+    </div>
+
+    <div class="form-area">
+
+      <!-- Google Button -->
+      <button class="social-btn">
+        <svg viewBox="0 0 48 48">
+          <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 29.8 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.4-.1-2.7-.4-4z"/>
+          <path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.5-17.7 11.7z"/>
+          <path fill="#FBBC05" d="M24 45c5.5 0 10.5-1.9 14.4-5l-6.7-5.5C29.8 36 27 37 24 37c-5.7 0-10.6-3.1-13.2-7.6l-7 5.4C7.6 40.5 15.3 45 24 45z"/>
+          <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.6 2.2-1.9 4.1-3.6 5.5l6.7 5.5C42.6 36.2 45 30.6 45 24c0-1.4-.1-2.7-.5-4z"/>
+        </svg>
+        Continue with Google
+      </button>
+
+      <!-- GitHub Button -->
+      <button class="social-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.09.68-.22.68-.49v-1.72c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 7.07c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.26 10.26 0 0 0 22 12.24C22 6.58 17.52 2 12 2z"/>
+        </svg>
+        Continue with GitHub
+      </button>
+
+      <!-- Facebook Button -->
+      <button class="social-btn">
+        <svg viewBox="0 0 24 24">
+          <path fill="#1877F2" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/>
+        </svg>
+        Continue with Facebook
+      </button>
+
+      <!-- Divider -->
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span>or sign in with email</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Email -->
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="you@example.com">
+
+      <!-- Password -->
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="••••••••">
+
+      <div class="forgot">
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button class="btn">Sign in</button>
+
+      <div class="footer">
+        Don't have an account? <a href="#">Sign up</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

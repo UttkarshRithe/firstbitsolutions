@@ -1,0 +1,39 @@
+# Eclipse metadata
+.metadata/
+.classpath
+.project
+.settings/
+
+# Build directories
+bin/
+build/
+dist/
+target/
+
+# IDE files
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Lock files (keep if you want to commit them)
+# *.lock
+
+# Permission issues
+Data Structure/Lab/.metadata/**
