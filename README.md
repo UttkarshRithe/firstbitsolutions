@@ -100,7 +100,7 @@ The repository is **structured to support multiple programming modules**, includ
 ---
 
 ### 🔹 Data Structures & Algorithms
-- **Current Status:** 🔄 In Progress
+- **Current Status:** ✅ Completed
 - **Topics Covered:**
   - Linear Data Structures (Arrays, Linked Lists, Stacks, Queues)
   - Sorting Algorithms (Bubble Sort, Selection Sort, Insertion Sort, Merge Sort)
@@ -325,7 +325,7 @@ firstbitsolutions/
 |--------|--------|----------|
 | **C Programming** | ✅ Completed | 13+ Assignments, Multiple Tests |
 | **Core Java** | 🔄 In Progress | Assignments, LAB Programs, 2 Projects |
-| **Data Structures** | 🔄 In Progress | Multiple DSA implementations |
+| **Data Structures** | ✅ Completed | Multiple DSA implementations |
 | **MySQL** | 🔄 In Progress | 5+ Assignments, Tests, Interview Questions |
 | **Python** | 🔄 In Progress | Basic Fundamentals & Exercises |
 | **Web Programming** | 🔄 Started | HTML Fundamentals |
