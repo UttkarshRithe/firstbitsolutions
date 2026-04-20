@@ -1,0 +1,21 @@
+package p1;
+
+import p2.InsertionSort;
+
+public class Test {
+
+	public static void main(String[] args) {
+		int[]arr= {36,12,25,4,47,1};
+		
+		InsertionSort s1 = new InsertionSort();
+		int[]res=s1.insertSort(arr);
+		
+		for(int ele:res)
+		{
+			System.out.println(ele);
+		}
+		
+
+	}
+
+}

@@ -1,0 +1,81 @@
+package p2;
+
+public class CircularQueue {
+
+	int[] arr;
+	int rare,front;
+	
+	public CircularQueue() {
+		arr = new int[10];
+		rare=-1;
+		front=-1;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(rare == -1)
+			return true;
+		else 
+			return false;
+	}
+	
+	public boolean isFull()
+	{
+		if(front==0 && rare==arr.length-1)
+			return true;
+		else
+			return false;	
+	}
+	
+	public void insert(int ele)
+	{
+		if(isFull())
+		{
+			System.out.println("Queue is Full!!");
+			return;
+		}
+		if(rare== arr.length-1 && front==0)
+			rare =0;
+		else
+			rare++;
+		
+		arr[rare]=ele;
+	}
+	public void delete()
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is Empty!!");
+			return;
+		}
+		if(front == rare )
+		{
+			front = -1;
+			rare = -1;
+		}
+		if(front == arr.length-1 && rare!=front)
+		{
+			front =0;
+		}
+		else
+			front++;
+	}
+	
+	public void display()
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is Empty!!");
+			return;
+		}
+		
+		for(int i=front;i<arr.length;i++)
+		{
+			System.out.println(arr[i]);
+		}
+		for(int i=0;i<=rare;i++)
+		{
+			System.out.println(arr[i]);
+		}
+	}
+}

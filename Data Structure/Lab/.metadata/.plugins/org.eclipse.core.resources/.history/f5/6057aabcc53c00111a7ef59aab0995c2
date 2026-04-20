@@ -1,0 +1,59 @@
+package p2;
+
+import p1.Node;
+
+public class Stack {
+
+	
+	Node start;
+	 int count;
+	
+	 
+	 boolean isEmpty()
+	 {
+		if(start==null)
+			return true;
+		else
+			return false;
+	 }
+	 
+	public void push(int ele)
+	{
+		 
+		 Node newNode = new Node(ele);
+		 if(isEmpty())
+		 {
+			 start=newNode;
+			 this.count++;
+			 return;
+		 }
+		 newNode.setNext(start);
+		 start=newNode;
+		 this.count++;
+	}
+	
+	 public void pop()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("Linkedlist is Empty!!");
+		 }
+		 else
+		 {
+			 start.setNext(start.getNext());
+		 }
+	 }
+	 
+	 public void peek()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("Linkedlist is Empty!!");
+		 }
+		 else
+		 {
+			 System.out.println(start.getData());
+		 }
+		 
+	 }
+}

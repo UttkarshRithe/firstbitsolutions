@@ -1,0 +1,141 @@
+package p1;
+
+
+
+ class Stack{
+
+	int top;
+	char [] arr;
+	
+	public Stack()
+	{
+		top=-1;
+		arr= new int[15];
+	}
+	
+	public void push(int ele)
+	{
+		if(isFull())
+		{
+			System.out.println("Stack is Full!!");
+		}
+		else
+		{
+			top++;
+			arr[top]=ele;
+		}
+	}
+	
+	public void pop()
+	{
+		if(isEmpty())
+		{
+			System.out.println("Stack is emplty!!");
+		}
+		else
+		{
+			top--;
+		}
+	}
+
+	 public boolean isEmpty() {
+		if(top==-1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	 public boolean isFull() {
+		
+		 if(top==arr.length-1)
+		 {
+			 return true;
+		 }
+		 else
+		 {
+			 return false;
+		 }
+	}
+	 
+	 public char peek()
+	 {
+	     if(isEmpty())
+	     {
+	         System.out.println("Stack is Empty!!");
+	         return '\0';   // null character
+	     }
+	     else
+	     { 
+	         return (char) arr[top];
+	     }
+	 }
+	 
+	 public void display()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("Stack is empty!!");
+		 }
+		 else
+		 {
+			 System.out.println("all elements from stack are:");
+			 int i=top;
+			 while (i>=0)
+			 {
+				 System.out.println(arr[i]);
+				 i--;
+			 }
+		 }
+	 }
+	 
+	 
+}
+
+
+
+public class StackQuestion {
+
+	public static void main(String[] args) {
+		
+			Stack s1 = new Stack();
+			
+			String str = "a+b*c";
+			
+			for(int i =0;i<str.length();i++)
+			{
+				char x = str.charAt(i);
+				
+				if( x =='(' || x=='*' || x=='/' || x=='+' || x=='-'|| x==')')
+				{
+					if(x==')')
+					{
+						while(s1.peek()!='(')
+						{
+							System.out.print(s1.peek());
+							s1.pop();
+						}
+						s1.pop();
+					}
+					if(x!=')')
+					{
+						s1.push(x);
+					}
+				}
+				else
+				{
+					System.out.print(x);
+				}
+			}
+			while(!s1.isEmpty())
+			{
+				System.out.print(s1.peek());
+				s1.pop();
+			}
+			
+	}
+
+}

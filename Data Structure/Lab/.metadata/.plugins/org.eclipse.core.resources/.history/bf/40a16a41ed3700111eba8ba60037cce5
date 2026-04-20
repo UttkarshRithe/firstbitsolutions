@@ -1,0 +1,68 @@
+package p2;
+
+public class Queue {
+	
+	int []arr;
+	int front;
+	int rare;
+	
+	public Queue()
+	{
+		arr= new int[10];
+		front=-1;
+		rare=-1;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(rare==-1)
+			return true;
+		else
+			return false;
+	}
+	public boolean isFull()
+	{
+		if(rare==arr.length-1)
+			return true;
+		else
+			return false;
+	}
+	
+	public void delete()
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is Empty!!");
+			return;
+		}
+		if(rare==front)
+		{
+			rare=-1;
+			front=-1;
+		}
+		else
+			front++;
+	}
+	
+	public void display()
+	{
+		for(int i=front;i<=rare;i++)
+		{
+			System.out.println(arr[i]);
+		}
+	}
+
+	public void insert(int ele) {
+		if(isFull())
+		{
+			System.out.println("Queue is Full!!");
+			return;
+		}
+		if(isEmpty())
+		{
+			front=0;
+		}
+		rare++;
+		arr[rare]=ele;
+	}
+}

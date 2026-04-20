@@ -1,0 +1,56 @@
+package p2;
+
+import p1.Node;
+
+public class Linkedlist {
+
+	
+	 Node start;
+	 int count;
+	 
+	 public Linkedlist()
+	 {
+		 start=null;
+	 }
+	 
+	 boolean isEmpty()
+	 {
+		if(start==null)
+			return true;
+		else
+			return false;
+	 }
+	 
+	 public void insert(int ele)
+	 {
+		 Node newNode = new Node(ele);
+		 if(isEmpty())
+		 {
+			 start = newNode;
+		 }
+		 else
+		 {
+			 Node temp = start;
+			 while(temp.getNext()!=null)
+			 {
+				 temp=temp.getNext();
+			 }
+			 temp.setNext(newNode);
+		 }
+	 }
+	 public void display()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("LinkedList is Empty!!");
+			 return;
+		 }
+		 Node temp = start;
+		 do
+		 {
+			 System.out.println(temp.getData());
+			 temp=temp.getNext();
+		 }while(temp.getNext()==null);
+		 -
+	 }
+}

@@ -1,0 +1,72 @@
+package p2;
+
+import p1.Node;
+
+public class Queue {
+
+	//FIFO
+	Node front,rear;
+	public Queue()
+	{
+		front=null;
+		rear=null;
+	}
+	
+	boolean isEmpty()
+	{
+		if(front==null && rear==null)
+			return true;
+		else 
+			return false;
+	}
+	
+	public void enque(int ele)
+	{
+		 Node newNode = new Node(ele);
+		 if(isEmpty())
+		 {
+			 front=newNode;
+			 rear = front;
+			 
+		 }
+		 else
+		 {
+			 rear.setNext(newNode);
+			 rear= newNode;
+		 }
+	}
+	
+	public void deque()
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is Empty!!");
+		}
+		else
+		{
+			front = front.getNext();
+		}
+	}
+	
+	public void display()
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is Empty!!");
+		}
+		else
+		{
+			Node temp=front;
+			while(temp!=null)
+			{
+				System.out.println(temp.getData());
+				temp = temp.getNext();
+			}
+		}
+	}
+	
+	
+	 
+	
+	
+}

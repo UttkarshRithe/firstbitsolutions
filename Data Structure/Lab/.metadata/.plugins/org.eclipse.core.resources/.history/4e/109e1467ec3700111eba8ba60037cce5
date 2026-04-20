@@ -1,0 +1,53 @@
+package p1;
+
+import java.util.Scanner;
+
+import p2.Queue;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Queue q1 = new Queue();
+		
+		Scanner sc = new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("1.enque\n2.dequen\n3.display\n4.exit");
+			System.out.println("Enter choice:"); 
+			int choice = sc.nextInt();
+			switch(choice)
+			{
+				case 1:
+				{
+					System.out.println("Enter ele you want to add:");
+					int ele = sc.nextInt();
+					q1.insert(ele);
+					break;
+				}
+				case 2:
+				{
+					q1.delete();
+					System.out.println(" Element has been remove");
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Elments From queue:");
+					q1.display();
+					break;
+				}
+				case 4:
+				{
+					return;
+				}	
+				default:
+				{
+					System.out.println("Enter Valid Choice!!");
+				}
+			}
+		}
+		
+
+	}
+
+}

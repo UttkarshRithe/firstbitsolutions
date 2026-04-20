@@ -1,0 +1,241 @@
+package p2;
+
+import p1.Node;
+
+public class Linkedlist {
+
+	
+	 Node start;
+	 int count;
+
+	 public Linkedlist()
+	 {
+		 start=null;
+	 }
+
+	 public int getCount() {
+		 return this.count;
+	 }
+	 
+	 boolean isEmpty()
+	 {
+		if(start==null)
+			return true;
+		else
+			return false;
+	 }
+	 
+	 public void insert(int ele)
+	 {
+		 Node newNode = new Node(ele);
+		 if(isEmpty())
+		 {
+			 start = newNode;
+			 this.count++;
+		 }
+		 else
+		 {
+			 Node temp = start;
+			 while(temp.getNext()!=null)
+			 {
+				 temp=temp.getNext();
+			 }
+			 temp.setNext(newNode);
+			 this.count++;
+		 }
+	 }
+	 
+	 public void display()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("LinkedList is Empty!!");
+			 return;
+		 }
+		 Node temp = start;
+		 do
+		 {
+			 System.out.println(temp.getData());
+			 temp=temp.getNext();
+		 }while(temp!=null);
+	 }
+	 
+	 public void insertAtBeg(int ele)
+	 {
+		 Node newNode = new Node(ele);
+		 if(isEmpty())
+		 {
+			 start=newNode;
+			 this.count++;
+			 return;
+		 }
+		 newNode.setNext(start);
+		 start=newNode;
+		 this.count++;
+	 }
+	 
+	 public void insertAtPos(int ele,int pos)
+	 {
+		 Node newNode = new Node(ele);
+		 if(pos<0)
+		 {
+			 System.out.println("You entered -ve: "+pos+" position");
+			 return;
+		 }
+		 if(isEmpty())
+		 {
+			if(pos==1)
+			{
+				start=newNode;
+			}
+			else {
+				System.out.println("You entered wrong position and list is empty!!");
+			}
+			return;
+		 }
+		 
+		 if(pos==1)
+		 {
+			 newNode.setNext(start);
+			 start=newNode;
+			 this.count++;
+			 return;
+		 }
+		 
+		 Node temp=start;
+		 int count=1;
+		 
+		 while(temp.getNext()!=null && count<pos-1)
+		 {
+			 temp = temp.getNext();
+			 count++;
+		 }
+		 if(count!=pos-1)
+		 {
+			 System.out.println("List has ele but you Entered wrong position which is greater than list element!!");
+		 }
+		 else
+		 {
+			 newNode.setNext(temp.getNext());
+			 temp.setNext(newNode);
+			 this.count++;
+		 }
+	 }
+	 
+	 public void sort() {
+		 Node p =start;
+			
+		 while(p!=null)
+		 {
+			 Node temp= p;
+			 Node min = p;
+			 
+			 while(temp!=null)
+			 {
+				 if(temp.getData()<min.getData())
+				 {
+					 min=temp;
+				 }
+				 
+				 temp = temp.getNext();
+			 }
+			 
+			 int x = p.getData();
+		        p.setData(min.getData());
+		        min.setData(x);
+			 
+			 p=p.getNext();
+		 }
+		
+		
+	 }
+	 
+	 public void delete(int pos)
+	 {
+		 if(pos<=0 || pos>this.count )
+		 {
+			 System.out.println("You enter Wrong Position!!!");
+		 }
+		 if(isEmpty())
+		 {
+			 System.out.println("Linkedlist is Empty!!");
+			 return;
+		 }
+		 
+		 if(pos==1)
+		 {
+			 start = start.getNext();
+			 count--;
+			 return;
+		 }
+		 
+		 Node temp=start;
+		 int count=1;
+		 
+		 while(count<pos-1)
+		 {
+			 temp=temp.getNext();
+			 count++;
+		 }
+		 
+		 temp.setNext(temp.getNext().getNext());
+		 count--;
+	 }
+	 
+	 public void deleteAtBeg()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("Linkedlist is Empty!!");
+		 }
+		 else
+		 {
+			 start=start.getNext();
+			 this.count--;
+		 }
+	 }
+	 
+	 public void deleteAtend()
+	 {
+		 if(isEmpty())
+		 {
+			 System.out.println("Linkedlist is Empty!!");
+		 }
+		 else if(this.count==1)
+		 {
+			 start=null;
+			 this.count--;
+		 }
+		 else
+		 {
+			 Node temp = start;
+			 while(temp.getNext().getNext()!=null)
+			 {
+				 temp = temp.getNext();
+			 }
+			 
+			 temp.setNext(null);
+			 this.count--;
+		 }
+		 
+		 
+	 }
+	 
+	 
+	 public void displayReverse()
+	 { 
+		 reverse(start);
+	 }
+	 
+	 public void reverse(Node start)
+	 {
+		 Node temp = start;
+		 if(temp!=null)
+		 {
+			 reverse(temp.getNext());
+			 System.out.println(temp.getData());
+		 }
+	 }
+
+	 
+}
