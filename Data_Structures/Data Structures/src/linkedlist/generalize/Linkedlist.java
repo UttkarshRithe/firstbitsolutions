@@ -1,11 +1,11 @@
-package linkedlist.singlylinkedlist.problemstatement.stackusinglinkedlist;
+package linkedlist.generalize;
 
-public class LinkedList {
+public class Linkedlist<T extends Comparable> {
 
-	Node start;
+	Node<T> start;
 	int count;
 	
-	public LinkedList(){
+	public Linkedlist(){
 		start = null;
 		count = 0;
 	}
@@ -19,16 +19,16 @@ public class LinkedList {
 	}
 	
 	//normal insert at and
-	public void insert(int element) {
+	public void insert(T ele) {
 		
-		Node node = new Node(element);
+		Node<T> node = new Node(ele);
 		
 		if(isEmpty()) {
 			start = node;
 			count++;
 		}
 		else {
-			Node currNode = start;
+			Node<T> currNode = start;
 			
 			while(currNode.getNext()!=null)
 				currNode = currNode.getNext();
@@ -39,9 +39,9 @@ public class LinkedList {
 	}
 	
 	//insert at beginning
-	public void insertAtBeg(int ele) {
+	public void insertAtBeg(T ele) {
 		
-		Node newNode = new Node(ele);
+		Node<T> newNode = new Node(ele);
 		
 		if(isEmpty()) {
 			start = newNode;
@@ -55,9 +55,9 @@ public class LinkedList {
 	}
 	
 	//insert at required position
-	public void insertAtPosition(int ele, int position) {
+	public void insertAtPosition(T ele, int position) {
 		
-		Node newNode = new Node(ele);
+		Node<T> newNode = new Node(ele);
 		
 		if(isEmpty()) {
 			if(position==1) {
@@ -76,7 +76,7 @@ public class LinkedList {
 			return;
 		}
 		
-		Node p=start;
+		Node<T> p=start;
 		int count=1;
 		
 		while(p.getNext()!=null && count<(position-1)) {
@@ -113,7 +113,7 @@ public class LinkedList {
 			return;
 		}
 		
-		Node p=start;
+		Node<T> p=start;
 		
 		if(p.getNext()==null) {
 			start=null;
@@ -131,21 +131,21 @@ public class LinkedList {
 	
 	//delete by entering element to match in a list to delete 
 	//delete the matching element at first occurrence
-	public void deleteElement(int ele) {
+	public void deleteElement(T ele) {
 		
 		if(isEmpty()) {	
 			System.out.println("\nList is Empty..!");
 			return;
 		}
 		
-		if(start.getData()==ele) {
+		if(start.getData().equals(ele)) {
 			deleteFromBeg();
 			return;
 		}
 		
-		Node p=start;
+		Node<T> p=start;
 		
-		while(p.getNext()!=null && p.getNext().getData()!=ele) {
+		while(p.getNext()!=null && !p.getNext().getData().equals(ele)) {
 			p = p.getNext();
 		}
 		
@@ -175,7 +175,7 @@ public class LinkedList {
 			return;
 		}
 		
-		Node p=start;
+		Node<T> p=start;
 		int c=1;
 		
 		while(c<position-1) {
@@ -196,7 +196,7 @@ public class LinkedList {
 			return;
 		}
 		
-		Node currNode = start;
+		Node<T> currNode = start;
 		
 		System.out.print("Start-> [");
 		while(currNode != null) {
@@ -214,7 +214,7 @@ public class LinkedList {
 	}
 	
 	//display reverse using recursion
-	public void displayReverseUsingRecursion(Node p) {
+	public void displayReverseUsingRecursion(Node<T> p) {
 		
 		if(p!=null) {
 			displayReverseUsingRecursion(p.getNext());
@@ -223,58 +223,59 @@ public class LinkedList {
 	}
 	
 	//sorting the list using bubbleSort
-	public void bubbleSort() {
+//	public void bubbleSort() {
+//		
+//		boolean swap = false;
+//		
+//		for(Node i=start; i!=null; i=i.getNext()) {
+//			for(Node j=start; j.getNext()!=null; j=j.getNext()) {
+//				if(j.getData()>j.getNext().getData()) {
+//					int temp = j.getData();
+//					j.setData(j.getNext().getData());
+//					j.getNext().setData(temp);
+//					swap=true;
+//				}
+//			}
+//			
+//			if(swap==false)
+//				return;
+//		}
+//	}
+	
+	
+//sorting the list using selection sort
+	public void sort() {
 		
-		boolean swap = false;
-		
-		for(Node i=start; i!=null; i=i.getNext()) {
-			for(Node j=start; j.getNext()!=null; j=j.getNext()) {
-				if(j.getData()>j.getNext().getData()) {
-					int temp = j.getData();
-					j.setData(j.getNext().getData());
-					j.getNext().setData(temp);
-					swap=true;
-				}
-			}
-			
-			if(swap==false)
-				return;
+		if(isEmpty())
+		{
+			System.out.println("List is Empty!!");
+			return;
 		}
+		
+	    Node<T> p = start;
+
+	    while (p != null) {
+	        Node<T> temp = p;
+	        Node<T> minNode = p;
+
+	        while (temp != null) {
+	            if (temp.getData().compareTo(minNode.getData()) < 0) {
+	                minNode = temp;
+	            }
+	            temp = temp.getNext();
+	        }
+
+	        // swap data
+	        T x = p.getData();
+	        p.setData(minNode.getData());
+	        minNode.setData(x);
+
+	        p = p.getNext(); 
+	    }
 	}
 	
 	
-	public void displayInReverseOrder() {
-		
-		int count=0;
-		
-		Node k=start;
-		
-		while(k!=null) {
-			count++;
-			k=k.getNext();
-		}
-		
-		int[] arr = new int[count];
-		
-		Node p=start;
-
-		int j=0;
-		
-		while(p!=null) {
-			arr[j] = p.getData();
-			j++;
-			p = p.getNext();
-		}
-		
-		System.out.print("[");
-		for(int i=arr.length-1; i>=0; i--) {
-			if(i==0)
-				System.out.println(arr[i] + "]\n");
-			else
-			System.out.print(arr[i] + ", ");
-		}
-	}
-
+	
 	//get total length of the list
 	public int getCount() {
 		return count;

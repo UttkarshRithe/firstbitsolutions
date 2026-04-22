@@ -60,7 +60,7 @@ public class SinglyLinkedListImplementation {
 					break;
 				}
 				case 8:{
-					ll.bubbleSort();
+					ll.sort();;
 					break;
 				}
 				case 9:{

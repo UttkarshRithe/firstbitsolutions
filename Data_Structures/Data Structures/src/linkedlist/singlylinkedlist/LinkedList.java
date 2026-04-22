@@ -243,6 +243,31 @@ public class LinkedList {
 	}
 	
 	
+	//sorting the list using selection sort
+	public void sort() {
+	    Node p = start;
+
+	    while (p != null) {
+	        Node temp = p;
+	        Node minNode = p;
+
+	        while (temp != null) {
+	            if (temp.getData() < minNode.getData()) {
+	                minNode = temp;
+	            }
+	            temp = temp.getNext();
+	        }
+
+	        // swap data
+	        int x = p.getData();
+	        p.setData(minNode.getData());
+	        minNode.setData(x);
+
+	        p = p.getNext(); 
+	    }
+	}
+	
+	
 	public void displayInReverseOrder() {
 		
 		int count=0;
