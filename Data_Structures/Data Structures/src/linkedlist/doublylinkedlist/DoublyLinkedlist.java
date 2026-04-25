@@ -67,6 +67,89 @@ public class DoublyLinkedlist {
 		
 	}
 	
+	public void delete(int pos)
+	{
+		if(pos<=0||pos>this.count)
+		{
+			System.out.println("You enter negative position or pos in greater than count of ele!!");
+			return;
+		}
+		
+		if(isEmpty())
+		{
+			System.out.println("List is Empty!!");
+			return;
+		}
+		if(pos==1)
+		{
+			start=start.getNext();
+			if(start.getNext()!=null)
+			{
+				start.setPrev(null);
+			}
+			this.count--;
+			return;
+		}
+		
+		Node temp=start;
+		int count=1;
+		while(count<pos)
+		{
+			temp=temp.getNext();
+			count++;
+		}
+		
+		temp.getPrev().setNext(temp.getNext());
+		if(temp.getNext()!=null)
+		{
+			temp.getNext().setPrev(temp.getPrev());
+		}
+		
+		this.count--;
+	}
+	
+	
+	public void deleteByEle(int ele)
+	{
+		if(isEmpty()) {
+			System.out.println("List is Empty!!");
+			return;
+		}
+		
+		Node temp=start;
+		
+		if(start.getData()==ele)
+		{
+			start = start.getNext();
+			if(temp.getNext()!=null)
+			{
+				start.setPrev(null);
+			}
+			this.count--;
+			return;
+		}
+		
+		
+		while(temp!=null)
+		{
+			if(temp.getData()==ele)
+			{	
+				
+				temp.getPrev().setNext(temp.getNext());
+				if(temp.getNext()!=null)
+				{	
+					temp.getNext().setPrev(temp.getPrev());
+				}
+				this.count--;
+				return;
+			}
+			
+			temp= temp.getNext();
+		}
+	
+	}
+	
+	
 	
 	public void display()
 	{

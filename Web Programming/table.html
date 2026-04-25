@@ -4,20 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+           .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .table-box {
+            flex: 0 0 auto;
+        }
+        .table-box:nth-child(even)
+        {
+            background-color: green;
+        }
+        .table-box:nth-child(odd)
+        {
+            background-color: yellow;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px 16px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <label for="number">Enter a number</label>
-    <input type="number">
-    <button onclick="table()" >Table</button>
+    <label for="start">Enter start</label>
+    <input type="number" id="start">
+    <label for="end">Enter end</label>
+    <input type="number" id="end">
+    <button onclick="table()">Table</button>
 
+    <div id="res"></div>
+
+    <script>
+        function table() {
+            let start = parseInt(document.getElementById("start").value);
+            let end = parseInt(document.getElementById("end").value);
+
+            if (isNaN(start) || isNaN(end)) {
+                document.getElementById("res").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            let str1 = `<div class="container">`;  // ✅ Container open
+
+            for (let j = start; j <= end; j++) {
+
+                let str = `<div class="table-box">   
+                                <table>
+                                    <tr>
+                                        <th colspan="2">Table of ${j}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Multiplication</th>
+                                        <th>Result</th>
+                                    </tr>`;
+
+                for (let i = 1; i <= 10; i++) {
+                    let res = i * j;
+                    str += `<tr>
+                                <td>${j} × ${i}</td>
+                                <td>${res}</td>
+                            </tr>`;
+                }
+
+                str += `</table>
+                        </div>`;   // ✅ table-box close
+
+                str1 = str1 + str;
+            }
+
+            str1 += `</div>`;  // ✅ Container close
+
+            document.getElementById("res").innerHTML = str1;
+        }
+    </script>
 </body>
-<script>
-
-function table()
-{
-    str=""
-    
-}
-
-</script>
 </html>
