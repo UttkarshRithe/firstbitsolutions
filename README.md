@@ -126,7 +126,6 @@ The repository is **structured to support multiple programming modules**, includ
   
 - **Assignments:**
   - Comprehensive DSA problem sets
-
 ---
 
 ### 🔹 MySQL & Databases
