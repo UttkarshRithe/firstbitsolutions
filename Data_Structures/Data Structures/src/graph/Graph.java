@@ -2,8 +2,10 @@ package graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph {
     Map<String, List<String>> adjlist;
@@ -37,4 +39,27 @@ public class Graph {
             System.out.println(k + " " + adjlist.get(k));
         }
     }
+    
+   private void DFS(String v,Set<String> visited)
+    {
+    	System.out.println(v);
+    	visited.add(v);
+    	
+    	for(String s:adjlist.get(v))
+    	{
+    		if(!visited.contains(s))
+    		{
+    			DFS(s,visited);
+    		}
+    	}		
+    }
+   
+   public void DFS(String v)
+   {
+	   Set<String> visited = new HashSet<>();
+	   DFS(v,visited);
+   }
+   
+   
+   
 }

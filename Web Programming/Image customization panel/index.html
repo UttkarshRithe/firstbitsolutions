@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Image -->
+    <img id="myImg" src="img/1ea3c8d857a5538900ebb4f6ce56f9e1.jpg" alt="Image">
+
+    <!-- Border Section -->
+    <div class="section">
+        <h3 id="borderBtn">Border</h3>
+
+        <div id="borderOptions" class="hidden">
+            Color:
+            <input type="color" id="borderColor"><br><br>
+
+            Style:
+            <select id="borderStyle">
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+            </select><br><br>
+
+            Width:
+            <input type="number" id="borderWidth" placeholder="px">
+        </div>
+    </div>
+
+    <!-- Shape Section -->
+    <div class="section">
+        <h3 id="shapeBtn">Shape</h3>
+
+        <div id="shapeOptions" class="hidden">
+            <select id="shape">
+                <option value="rectangle">Rectangle</option>
+                <option value="circle">Circle</option>
+                <option value="hexagon">Hexagon</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Apply Button -->
+    <button id="applyBtn">Apply</button>
+
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

@@ -15,6 +15,7 @@ public class GraphImplementation {
             System.out.println("2. Edge add karo");
             System.out.println("3. Graph display karo");
             System.out.println("4. Exit");
+            System.out.println("5. DFS");
             System.out.print("Choice do: ");
 
             int choice = sc.nextInt();
@@ -71,6 +72,13 @@ public class GraphImplementation {
                     System.out.println("👋 Bye Bye!");
                     sc.close();
                     return;
+                    
+                    
+                case 5:
+                    System.out.println("Enter Vertex you want start");
+                    String v = sc.next();
+                    g.DFS(v);
+                    break;
 
                 default:
                     System.out.println("❌ Galat choice! 1-4 ke beech choose karo.");
